@@ -21,7 +21,7 @@ Get-Command -Module Hyper-V
 Get-VM
 
 # 2.3. Получить состояние имеющихся виртуальных машин
-Get-MV | Select-Object -Property Name, State
+Get-VM | Select-Object -Property Name, State
 
 # 2.4. Выключить виртуальную машину
 Stop-VM -Name dervoedov_vm2
