@@ -3,7 +3,6 @@ Get-WmiObject -Class Win32_NetworkAdapterConfiguration -Filter IPEnabled=TRUE -C
 
 # 1.2. Получить mac-адреса всех сетевых устройств вашего компьютера и удалённо.
 Get-WmiObject -Class Win32_NetworkAdapter -ComputerName . | Select-Object -Property MACAddress
-# Get-WmiObject -Class Win32_NetworkAdapter -ComputerName . | Select-Object -Property MACAddress | Where-Object {$_.MACAddress -ne ""}
 
 # 1.3. На всех виртуальных компьютерах настроить (удалённо) получение адресов с DHСP.
 
