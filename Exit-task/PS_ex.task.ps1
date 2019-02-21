@@ -40,8 +40,10 @@ $service = gwmi win32_service -Credential $name\Administrator -ComputerName $nam
 Expand-Archive -Path C:\temp\test.zip -DestinationPath C:\zip
 Get-ChildItem -Path C:\zip | Rename-Item -NewName {$_.Directory.Name + "-" + $_.Name}
 $size = 0
+$count = 0
 cd C:\zip
-foreach ($file in Get-ChildItem *) { 
+foreach ($file in Get-ChildItem * -Exclude Directory) { 
     $size += $file.length 
+    $count++
 }
-Write-Output ("Total size: " + ($size/1kb) + "Kb")
+Write-Output ("Total size of $count files: " + ($size/1kb) + "Kb")
